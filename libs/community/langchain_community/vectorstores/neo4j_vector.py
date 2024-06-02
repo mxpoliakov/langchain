@@ -327,7 +327,7 @@ def _handle_field_filter(
             query_param = {f"param_{param_number}": filter_value}
             return (query_snippet, query_param)
         elif operator in {"$nin"}:
-            query_snippet = f"n.`{field}` NOT IN $param_{param_number}"
+            query_snippet = f"NOT n.`{field}` IN $param_{param_number}"
             query_param = {f"param_{param_number}": filter_value}
             return (query_snippet, query_param)
         elif operator in {"$like"}:
